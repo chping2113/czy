@@ -1,0 +1,18 @@
+### global config ###
+# log level: DEBUG<INFO<WARN<ERROR<FATAL
+log4j.rootLogger=info, console, file
+
+### appender of console ###
+log4j.appender.console=org.apache.log4j.ConsoleAppender
+log4j.appender.console.layout=org.apache.log4j.PatternLayout
+log4j.appender.console.layout.ConversionPattern=[%-5p  %5r %c] -> %m%n
+
+### appender of file ###
+log4j.appender.file=org.apache.log4j.RollingFileAppender
+log4j.appender.file.File=${catalina.home}/pcms.log
+log4j.appender.file.MaxFileSize=10000KB
+log4j.appender.file.MaxBackupIndex=1
+log4j.appender.file.layout=org.apache.log4j.PatternLayout
+log4j.appender.file.layout.ConversionPattern=[%-5p  %5r  %d{yyyy-MM-dd HH\:mm\:ss.SSS}  %c] -> %m%n
+
+#log4j.logger.com.opensymphony.xwork2=ERROR 

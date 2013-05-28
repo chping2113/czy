@@ -1,0 +1,22 @@
+body,*{ margin:0px; padding:0px;}
+.nav{ width:754px; height:25px; background:url(../images/search_bg.jpg);}
+.nav ul{ list-style-type:none;}
+
+.nav ul li{ float:left; line-height:25px; text-align:center;}
+
+.nav ul li a{ display:block; width:150px;height:25px; color:#FFF; font-size:12px;  text-decoration:none;}
+
+
+#curTab{display:block; color:#79280D; height:25px; background:#EDB439; }
+
+
+
+
+
+
+
+
+
+
+
+

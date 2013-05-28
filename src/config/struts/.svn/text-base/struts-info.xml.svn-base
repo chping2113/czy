@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+
+	<package name="info" extends="default" namespace="/info">
+		<action name="notice_*" method="{1}" class="com.kjlink.ahpips.web.action.info.NoticeAction">
+			<result name="listNotice">/WEB-INF/pages/info/listNotice.jsp</result>
+			<result name="addNotice">/WEB-INF/pages/info/addNotice.jsp</result>
+			<result name="uploadSucc">/uploadFrame.jsp</result>
+			<result name="error" type="redirect">info/notice_largeFile.action</result>
+			<interceptor-ref name="fileUpload">
+				<param name="maximumSize">8388608</param>
+				<!-- param name="allowedTypes">application/msword,image/jpeg</param -->
+			</interceptor-ref>
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+			<interceptor-ref name="securityAuthenticate" />
+		</action>
+		
+		<action name="download" class="com.kjlink.ahpips.web.action.info.DownloadAction">
+			<result name="downloadSuccess" type="stream">
+				<param name="contentDisposition">attachment;filename="${fileName}"</param>
+				<param name="inputName">downloadFile</param>
+			</result>
+		</action>
+		
+		<action name="news_*" method="{1}" class="com.kjlink.ahpips.web.action.info.NewsAction">
+		 
+			<result name="listNews">/WEB-INF/pages/info/listNews.jsp</result>
+			
+			<result name="addNews">/WEB-INF/pages/info/addNews.jsp</result>
+			<result name="uploadSucc">/newsUpload.jsp</result>
+			<result name="error" type="redirect">info/news_largeFile.action</result>
+			<interceptor-ref name="fileUpload">
+				<param name="maximumSize">53687091200</param>
+				<!-- param name="allowedTypes">application/msword,image/jpeg</param -->
+			</interceptor-ref>
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+			<interceptor-ref name="securityAuthenticate" />
+		</action>
+		
+		<!-- 栏目管理 -->
+		<action name="scolumn_*" method="{1}" class="com.kjlink.ahpips.web.action.info.ScolumnAction">
+			<result name="listFirstLevelScolumn">/WEB-INF/pages/info/listFirstLevelScolumn.jsp</result>
+			<result name="listSecondLevelScolumn">/WEB-INF/pages/info/listSecondLevelScolumn.jsp</result>
+			<result name="addScolumn">/WEB-INF/pages/info/addScolumn.jsp</result>
+			<result name="viewScolumn">/WEB-INF/pages/info/viewScolumn.jsp</result>	
+			<result name="listScolumnProperty">/listScolumnProperty.jsp</result>	
+		</action>
+		
+		<action name="task_*" method="{1}" class="com.kjlink.ahpips.web.action.info.TaskAction">
+			<result name="listTask">/WEB-INF/pages/info/taskList.jsp</result>
+			<result name="addTask">/WEB-INF/pages/info/taskAdd.jsp</result>
+			<result name="viewTask">/WEB-INF/pages/info/taskView.jsp</result>
+			
+		</action>
+		
+		<action name="newsCatelog_*" method="{1}" class="com.kjlink.ahpips.web.action.info.NewsCatelogAction">
+			<result name="listFirstLevelNewsCatelog">/WEB-INF/pages/info/listFirstLevelNewsCatelog.jsp</result>
+			<result name="listSecondLevelNewsCatelog">/WEB-INF/pages/info/listSecondLevelNewsCatelog.jsp</result>
+			<result name="addNewsCatelog">/WEB-INF/pages/info/addNewsCatelog.jsp</result>
+			<result name="viewNewsCatelog">/WEB-INF/pages/info/viewNewsCatelog.jsp</result>
+		</action>
+		
+		<action name="complaint_*" method="{1}" class="com.kjlink.ahpips.web.action.info.ComplaintAction">
+			<result name="listComplaint">/WEB-INF/pages/info/listComplaint.jsp</result>
+			<result name="viewComplaint">/WEB-INF/pages/info/viewComplaint.jsp</result>
+			<result name="editComplaint">/WEB-INF/pages/info/editComplaint.jsp</result>
+			<result name="redirectInit" type="redirect">/info/complaint_query.action?pageNo=${pageNo}</result>
+		</action>
+		
+	</package>
+	
+</struts>    

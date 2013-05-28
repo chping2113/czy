@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+
+	<package name="credit" extends="default" namespace="/credit">
+			
+		
+		<action name="personHonor_*" method="{1}" class="com.kjlink.ahpips.web.action.credit.PersonHonorAction">
+		
+		   <result name="redirectInitAdd" type="redirectAction">
+	
+			　　<param name="actionName">personHonor_initAdd.action</param>
+			
+			　　<param name="namespace">/credit</param>
+			
+			　　<param name="ctype">1</param>
+			
+			　　<param name="personName">${personName}</param>
+			　　<param name="certificateCode">${certificateCode}</param>
+			
+		　　</result> 
+			
+		
+			<result name="personHonorList">/WEB-INF/pages/credit/person/personHonorList.jsp</result>
+			<result name="redirectInit" type="redirect">/credit/personHonor_query.action?clearFlag=1&amp;pageNo=${pageNo}</result>
+			<result name="searchPersonInfoList">/WEB-INF/pages/credit/person/searchPersonInfoList.jsp</result>
+			<result name="personHonorAdd">/WEB-INF/pages/credit/person/personHonorAdd.jsp</result>
+			<result name="personHonorEdit">/WEB-INF/pages/credit/person/personHonorAdd.jsp</result>
+			<result name="personHonorView">/WEB-INF/pages/credit/person/personHonorView.jsp</result>
+		</action>
+		<action name="personBadrecord_*" method="{1}" class="com.kjlink.ahpips.web.action.credit.PersonBadrecordAction">
+		
+			<result name="redirectInitAdd" type="redirectAction">
+
+			　　<param name="actionName">personBadrecord_initAdd.action</param>
+			
+			　　<param name="namespace">/credit</param>
+			
+			　　<param name="ctype">1</param>
+			
+			　　<param name="personName">${personName}</param>
+			　　<param name="certificateCode">${certificateCode}</param>
+			
+		　　</result> 
+		
+			<result name="personBadrecordList">/WEB-INF/pages/credit/person/personBadrecordList.jsp</result>
+			<result name="searchPersonInfoList">/WEB-INF/pages/credit/person/searchPersonInfoList.jsp</result>
+			<result name="redirectInit" type="redirect">/credit/personBadrecord_query.action?pageNo=${pageNo}</result>
+			<result name="personBadrecordAdd">/WEB-INF/pages/credit/person/personBadrecordAdd.jsp</result>
+			<result name="personIllegalAdd">/WEB-INF/pages/credit/person/personIllegalAdd.jsp</result>
+			<result name="personPunishAdd">/WEB-INF/pages/credit/person/personPunishAdd.jsp</result>
+			<result name="personIllegalEdit">/WEB-INF/pages/credit/person/personIllegalEdit.jsp</result>
+			<result name="personPunishEdit">/WEB-INF/pages/credit/person/personPunishEdit.jsp</result>
+			<result name="personIllegalView">/WEB-INF/pages/credit/person/personIllegalView.jsp</result>
+			<result name="personPunishView">/WEB-INF/pages/credit/person/personPunishView.jsp</result>
+		</action>
+		<action name="personApprove_*" method="{1}" class="com.kjlink.ahpips.web.action.credit.PersonApproveAction">
+			<result name="personApproveList">/WEB-INF/pages/credit/person/personApproveList.jsp</result>
+			<result name="personApprove">/WEB-INF/pages/credit/person/personApprove.jsp</result>
+		</action>
+		<action name="personQualification_*" method="{1}" class="com.kjlink.ahpips.web.action.credit.PersonQualificationAction">
+			<result name="personQualificationList">/WEB-INF/pages/credit/person/personQualificationList.jsp</result>
+			<result name="searchPersonInfoList">/WEB-INF/pages/credit/person/searchPersonInfoList.jsp</result>
+			<result name="redirectInit" type="redirect">/credit/personQualification_query.action?clearFlag=1&amp;pageNo=${pageNo}</result>
+			<result name="redirectInitAdd" type="redirectAction">
+
+		　　<param name="actionName">personQualification_initAdd.action</param>
+		
+		　　<param name="namespace">/credit</param>
+		
+		　　<param name="ctype">1</param>
+		
+		　　<param name="personName">${personName}</param>
+		　　<param name="certificateCode">${certificateCode}</param>
+		
+		　　</result> 
+			<result name="personQualificationAdd">/WEB-INF/pages/credit/person/personQualificationAdd.jsp</result>
+			<result name="personQualificationView">/WEB-INF/pages/credit/person/personQualificationView.jsp</result>
+		</action>
+		
+		<action name="personInfo_*" method="{1}" class="com.kjlink.ahpips.web.action.credit.PersonInfoAction">
+		
+			<result name="personArchives">/WEB-INF/pages/credit/person/personArchives.jsp</result>
+			<result name="personInfoList">/WEB-INF/pages/credit/person/personInfoList.jsp</result>
+			<result name="searchPersonInfoList">/WEB-INF/pages/credit/person/searchPersonInfoList.jsp</result>
+			<result name="redirectInit" type="redirect">/credit/personInfo_query.action?clearFlag=1&amp;pageNo=${pageNo}</result>
+			<result name="personInfoAdd">/WEB-INF/pages/credit/person/personInfoAdd.jsp</result>
+			<result name="personInfoView">/WEB-INF/pages/credit/person/personInfoView.jsp</result>
+			<result name="personUploadCreditPage">/WEB-INF/pages/credit/person/personUploadCreditPage.jsp</result>
+		</action>
+		
+		
+		<action name="companyHonor_*" method="{1}" class="com.kjlink.ahpips.web.action.credit.CompanyHonorAction">
+			<result name="companyHonorList">/WEB-INF/pages/credit/company/companyHonorList.jsp</result>
+			
+			<result name="redirectInitAdd" type="redirectAction">
+
+		　　<param name="actionName">companyHonor_initAdd.action</param>
+		
+		　　<param name="namespace">/credit</param>
+		
+		　　<param name="ctype">1</param>
+		
+		　　<param name="companyName">${companyName}</param>
+		　　<param name="licenseCode">${licenseCode}</param>
+		
+		　　</result> 
+			
+			<result name="redirectInit" type="redirect">/credit/companyHonor_query.action?clearFlag=1&amp;pageNo=${pageNo}</result>
+			<result name="searchCompanyInfoList">/WEB-INF/pages/credit/company/searchCompanyInfoList.jsp</result>
+			<result name="companyHonorAdd">/WEB-INF/pages/credit/company/companyHonorAdd.jsp</result>
+			<result name="companyHonorEdit">/WEB-INF/pages/credit/company/companyHonorAdd.jsp</result>
+			<result name="companyHonorView">/WEB-INF/pages/credit/company/companyHonorView.jsp</result>
+		</action>
+		<action name="companyBadrecord_*" method="{1}" class="com.kjlink.ahpips.web.action.credit.CompanyBadrecordAction">
+			
+			<result name="redirectInitAdd" type="redirectAction">
+
+		　　<param name="actionName">companyBadrecord_initAdd.action</param>
+		
+		　　<param name="namespace">/credit</param>
+		
+		　　<param name="ctype">1</param>
+		
+		　　<param name="companyName">${companyName}</param>
+		　　<param name="licenseCode">${licenseCode}</param>
+		
+		　　</result> 
+			
+			<result name="searchCompanyInfoList">/WEB-INF/pages/credit/company/searchCompanyInfoList.jsp</result>
+			<result name="companyBadrecordList">/WEB-INF/pages/credit/company/companyBadrecordList.jsp</result>
+			<result name="redirectInit" type="redirect">/credit/companyBadrecord_query.action?clearFlag=1&amp;pageNo=${pageNo}</result>
+			<result name="companyBadrecordAdd">/WEB-INF/pages/credit/company/companyBadrecordAdd.jsp</result>
+			
+			<result name="companyIllegalAdd">/WEB-INF/pages/credit/company/companyIllegalAdd.jsp</result>
+			<result name="companyIllegalEdit">/WEB-INF/pages/credit/company/companyIllegalEdit.jsp</result>
+			<result name="companyIllegalView">/WEB-INF/pages/credit/company/companyIllegalView.jsp</result>
+			
+			<result name="companyPunishAdd">/WEB-INF/pages/credit/company/companyPunishAdd.jsp</result>
+			<result name="companyPunishEdit">/WEB-INF/pages/credit/company/companyPunishEdit.jsp</result>
+			<result name="companyPunishView">/WEB-INF/pages/credit/company/companyPunishView.jsp</result>
+			
+			<result name="companyForceAdd">/WEB-INF/pages/credit/company/companyForceAdd.jsp</result>
+			<result name="companyForceEdit">/WEB-INF/pages/credit/company/companyForceEdit.jsp</result>
+			<result name="companyForceView">/WEB-INF/pages/credit/company/companyForceView.jsp</result>
+			
+			<result name="companyRulingAdd">/WEB-INF/pages/credit/company/companyRulingAdd.jsp</result>
+			<result name="companyRulingEdit">/WEB-INF/pages/credit/company/companyRulingEdit.jsp</result>
+			<result name="companyRulingView">/WEB-INF/pages/credit/company/companyRulingView.jsp</result>
+			
+			<result name="companyWageAdd">/WEB-INF/pages/credit/company/companyWageAdd.jsp</result>
+			<result name="companyWageEdit">/WEB-INF/pages/credit/company/companyWageEdit.jsp</result>
+			<result name="companyWageView">/WEB-INF/pages/credit/company/companyWageView.jsp</result>
+			
+			<result name="companyQualityAdd">/WEB-INF/pages/credit/company/companyQualityAdd.jsp</result>
+			<result name="companyQualityEdit">/WEB-INF/pages/credit/company/companyQualityEdit.jsp</result>
+			<result name="companyQualityView">/WEB-INF/pages/credit/company/companyQualityView.jsp</result>
+			
+			<result name="companyMaliciousAdd">/WEB-INF/pages/credit/company/companyMaliciousAdd.jsp</result>
+			<result name="companyMaliciousEdit">/WEB-INF/pages/credit/company/companyMaliciousEdit.jsp</result>
+			<result name="companyMaliciousView">/WEB-INF/pages/credit/company/companyMaliciousView.jsp</result>
+		</action>
+		
+		
+		<action name="companyCredit_*" method="{1}" class="com.kjlink.ahpips.web.action.credit.CompanyCreditAction">
+			<result name="companyCreditList">/WEB-INF/pages/credit/company/companyCreditList.jsp</result>
+			<result name="searchCompanyInfoList">/WEB-INF/pages/credit/company/searchCompanyInfoList.jsp</result>
+			<result name="companyCreditAdd">/WEB-INF/pages/credit/company/companyCreditAdd.jsp</result>
+			<result name="companyCreditView">/WEB-INF/pages/credit/company/companyCreditView.jsp</result>
+			<result name="redirectInit" type="redirect">/credit/companyCredit_query.action?pageNo=${pageNo}</result>
+		</action>
+		
+		
+		<action name="companyApprove_*" method="{1}" class="com.kjlink.ahpips.web.action.credit.CompanyApproveAction">
+			<result name="companyApproveList">/WEB-INF/pages/credit/company/companyApproveList.jsp</result>
+			<result name="companyApprove">/WEB-INF/pages/credit/company/companyApprove.jsp</result>
+		</action>
+		
+		<action name="companyInfo_*" method="{1}" class="com.kjlink.ahpips.web.action.credit.CompanyInfoAction">
+		
+		
+			<result name="companyArchives">/WEB-INF/pages/credit/company/companyArchives.jsp</result>
+			<result name="companyInfoList">/WEB-INF/pages/credit/company/companyInfoList.jsp</result>
+			<result name="searchCompanyInfoList">/WEB-INF/pages/credit/company/searchCompanyInfoList.jsp</result>
+			<result name="redirectUpload" type="redirect">/credit/companyInfo_query.action?clearFlag=1&amp;pageNo=${pageNo}</result>
+			<result name="companyInfoAdd">/WEB-INF/pages/credit/company/companyInfoAdd.jsp</result>
+			<result name="companyInfoView">/WEB-INF/pages/credit/company/companyInfoView.jsp</result>
+			<result name="companyUploadCreditPage">/WEB-INF/pages/credit/company/companyUploadCreditPage.jsp</result>
+		</action>
+		<action name="companyQualification_*" method="{1}" class="com.kjlink.ahpips.web.action.credit.CompanyQualificationAction">
+			<result name="companyQualificationList">/WEB-INF/pages/credit/company/companyQualificationList.jsp</result> 
+			<!-- <result name="companyQualificationList" type="redirect">/credit/companyInfo_uploadCreditPage.action?companyId=${companyId}</result> -->
+			
+			
+			<result name="redirectInitAdd" type="redirectAction">
+
+		　　<param name="actionName">companyQualification_initAdd.action</param>
+		
+		　　<param name="namespace">/credit</param>
+		
+		　　<param name="ctype">1</param>
+		
+		　　<param name="companyName">${companyName}</param>
+		　　<param name="licenseCode">${licenseCode}</param>
+		
+		　　</result> 
+			
+			<result name="searchCompanyInfoList">/WEB-INF/pages/credit/company/searchCompanyInfoList.jsp</result>
+			<result name="companyQualificationAdd">/WEB-INF/pages/credit/company/companyQualificationAdd.jsp</result>
+			<result name="companyQualificationView">/WEB-INF/pages/credit/company/companyQualificationView.jsp</result>
+			<result name="redirectInit" type="redirect">/credit/companyQualification_query.action?clearFlag=1&amp;pageNo=${pageNo}</result>
+		</action>
+		<action name="companyAchieve_*" method="{1}" class="com.kjlink.ahpips.web.action.credit.CompanyAchieveAction">
+			<result name="companyAchieveList">/WEB-INF/pages/credit/company/companyAchieveList.jsp</result>
+			<!-- <result name="companyAchieveList" type="redirect">/credit/companyInfo_uploadCreditPage.action?companyId=${companyId}</result> -->
+			
+			<result name="redirectInitAdd" type="redirectAction">
+
+		　　<param name="actionName">companyAchieve_initAdd.action</param>
+		
+		　　<param name="namespace">/credit</param>
+		
+		　　<param name="ctype">1</param>
+		
+		　　<param name="companyName">${companyName}</param>
+		　　<param name="licenseCode">${licenseCode}</param>
+		
+		　　</result> 
+			
+	
+			<result name="searchCompanyInfoList">/WEB-INF/pages/credit/company/searchCompanyInfoList.jsp</result>
+			<result name="companyAchieveAdd">/WEB-INF/pages/credit/company/companyAchieveAdd.jsp</result>
+			<result name="companyAchieveView">/WEB-INF/pages/credit/company/companyAchieveView.jsp</result>
+			<result name="redirectInit" type="redirect">/credit/companyAchieve_query.action?clearFlag=1&amp;pageNo=${pageNo}</result>
+		</action>
+		
+		<action name="creditCompany_*" method="{1}" class="com.kjlink.ahpips.web.action.credit.CreditCompanyAction">
+			<result name="creditCompanyList">/WEB-INF/pages/credit/company/creditCompanyList.jsp</result>
+			<result name="creditCompanyEdit">/WEB-INF/pages/credit/company/creditCompanyEdit.jsp</result>
+			<result name="creditCompanyView">/WEB-INF/pages/credit/company/creditCompanyView.jsp</result>
+			<result name="redirectInit" type="redirect">/credit/creditCompany_query.action?pageNo=${pageNo}</result>
+		</action>
+		
+		<action name="creditPerson_*" method="{1}" class="com.kjlink.ahpips.web.action.credit.CreditPersonAction">
+			<result name="creditPersonList">/WEB-INF/pages/credit/person/creditPersonList.jsp</result>
+			<result name="creditPersonEdit">/WEB-INF/pages/credit/person/creditPersonEdit.jsp</result>
+			<result name="creditPersonView">/WEB-INF/pages/credit/person/creditPersonView.jsp</result>
+			<result name="redirectInit" type="redirect">/credit/creditPerson_query.action?pageNo=${pageNo}</result>
+		</action>
+		
+	</package>
+	
+</struts>

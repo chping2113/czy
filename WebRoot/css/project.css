@@ -1,0 +1,52 @@
+/*----------------------------project------------------------------*/
+.project { border-bottom-style:solid; border-bottom-color:#BCD9FF; border-bottom-width:1px; padding:1px; width:778px; _min-height:300px; background:url(../Img/right_content_bg.PNG) repeat-x top; background-color:#E9F2FF; clear:both; }
+.project-title1 a,
+.project-title1 span,
+.project-title1 ul li a:hover { font-weight:bold; display:block; float:left; line-height:24px; background:none; text-decoration:none; }
+.project-title1 { height:24px; width:100%; border-bottom-style:solid; border-top-style:solid; border-color:#BCD9FF; border-width:1px; margin-bottom:1px; padding-bottom:1px; background:url(../Img/p-1.png) repeat-x; }/*------------------------------------------------------------*/
+.project-title1 ul { float:left; background:none; margin:0px; }
+.project-title1 ul li { background:url(../Img/p-3.png) no-repeat right; float:left; line-height:24px; list-style-type:none; margin-left:15px; padding-right:15px; display:block; width:auto; }
+.project-image1 { background:none; margin-top:3px; float:left; line-height:25px; }
+.project_image2_Icon { background:none; margin-top:4px; padding-right:5px; float:left; line-height:25px; }
+.project-title1 ul li div { background:url(../Img/p-4.gif) no-repeat left bottom; float:left; width:16px; height:16px; margin-top:3px; margin-right:3px; }
+.project-title2 { height:25px; background:url(../Img/p-2.png) repeat-x top; text-align:left; }
+.project-content { background:url(../Img/temp-project.PNG) no-repeat top left; height:120px; }
+.project-title2 ul { float:left; background:none; margin:0px; }
+.project-title2 ul li { background:url(../Img/pp-1.png) no-repeat right; float:left; line-height:25px; list-style-type:none; margin-left:10px; padding-right:10px; display:block; }
+.project-title2 ul li a,
+.project-title2 ul li a:hover { text-decoration:none; background:none; line-height:25px; margin-left:3px; }
+.project .divp { background:none; }
+.project .divp p { float:left; width:300px; background:none; padding-left:30px; margin-top:10px; line-height:22px; }
+.project .divp p span { font-weight:bold; width:100px; display:block; background:none; float:left; }
+.project .divp p input { border-style:none; background:none; border-bottom:dotted 1px; }
+.project .divp2 { background:none; }
+.project .divp2 p { float:left; width:300px; background:none; padding-left:30px; margin-top:10px; line-height:22px; }
+.project .divp2 p span { font-weight:bold; width:100px; display:block; background:none; float:left; }
+.project .divp2 p input { border-style:none; }
+
+
+.project_ask_search { clear:both; height:40px; background-color:#e9f2ff; border-top:solid 1px #bcd9ff; border-bottom:solid 1px #bcd9ff; }
+.project_ask_search p { line-height:50px; float:left; background:none; padding-left:10px; margin-top:10px; line-height:22px; width:auto; }
+.project_ask_search p span { font-weight:normal; display:block; float:left; width:auto; }
+.project_ask_search p input { background-color:White; margin:0px; width:80px; height:18px; }
+/**/
+.divask-title {  height:25px; width:700px; margin-left:30px; background:none; }
+.strong { font-weight:bold; color: red; margin-right: 3px; background:none; }
+.divask-title ul { float:left; background:none; margin:0px; margin-top:2px; }
+.divask-title ul li { float:left; line-height:22px; list-style-type:none; margin-left:10px; padding-right:10px; display:block; background:none; }
+.divask-title ul li a,
+.divask-title ul li a:hover { text-decoration:none; background:none; line-height:20px; margin-left:3px; background:none; }
+.divask-list { border-top:solid 1px #bcd9ff; width:700px; margin-left:30px; background:none; }
+.divask-list p { padding-bottom:3px; padding-top:3px; line-height:30px; background:none; }
+.divask-list p input { background-color:White; margin-top:3px; height:18px; }
+.divask-list p span { font-weight:bold; width:160px; display:block; background:none; float:left; }
+.divask-image { width:16px; height:14px; margin-left:6px; }
+.divask-list p select { width:100px; margin-left:3px; }
+
+.location_title { height:32px; line-height:32px;clear:both; font-weight:bold; padding-left:15px; border-bottom:1px solid #8ec1ee;}
+
+.manipulate,
+.manipulate ul{ width:110px; text-align:center; margin:0 auto;}
+.manipulate ul li { text-align:center;padding:0 5px 0 5px; margin:0 auto;list-style:none;float:left;}
+
+.index_2_003_1_new ul li {height:30px; line-height:30px;}

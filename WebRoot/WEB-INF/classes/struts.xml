@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<constant name="struts.devMode" value="false" />
+	<constant name="struts.i18n.encoding" value="utf-8"></constant>
+	<constant name="struts.custom.i18n.resources" value="messages"></constant>
+	<constant name="struts.multipart.maxSize" value="10000000" />
+	<constant name="struts.ognl.allowStaticMethodAccess" value="true"></constant>
+	<constant name="struts.i18n.reload" value="true" /> 
+
+	<!-- 屏蔽     系统后台管理-->
+	<include file="config/struts/struts-system.xml" />
+	<include file="config/struts/struts-project.xml" />
+	<include file="config/struts/struts-credit.xml" />
+	<include file="config/struts/struts-info.xml" />
+	
+	
+	<!-- public包下面的action无需进行权限认证 -->
+	<package name="no_authenticate" extends="struts-default" namespace="/">
+		<default-interceptor-ref name="paramsPrepareParamsStack" /> 
+		<default-action-ref name="defaultAction"></default-action-ref>
+	 	
+		<global-results>
+			
+			<result name="login">/WEB-INF/pages/login.jsp</result>
+			 <!--屏蔽     
+			<result name="login">/WEB-INF/pages/systemUpdate.jsp</result>系统后台管理-->
+			<result name="no_login">/WEB-INF/pages/no_login.jsp</result>
+			<result name="home" type="redirect">pub_welcome.action</result>
+			<result name="welcome">/WEB-INF/pages/welcome.jsp</result>
+			<result name="message">/WEB-INF/pages/message.jsp</result><!--  
+			<result name="error" type="redirect">/error.jsp</result>-->
+			<result name="success">/WEB-INF/pages/success.jsp</result>
+		</global-results>
+		<global-exception-mappings>
+			<exception-mapping result="error" exception="java.lang.Throwable"></exception-mapping>
+		</global-exception-mappings>
+		
+		<action name="load_*" class="com.kjlink.load.action.LoadAction" method="{1}">
+			<result name="load">success.jsp</result>
+		</action>
+		
+		
+		<action name="pub_*" class="com.kjlink.ahpips.web.action.PublicAction" method="{1}">
+			<result name="organIndex">/WEB-INF/pages/index/index.jsp</result>
+			<result name="index">/WEB-INF/pages/index/template.jsp</result>
+			<result name="listNews">/WEB-INF/pages/index/listNews.jsp</result>
+			<result name="listNotice">/WEB-INF/pages/index/listNotice.jsp</result>
+			<result name="showNotice">/WEB-INF/pages/index/showNotice.jsp</result>
+			<result name="showNews">/WEB-INF/pages/index/showNews.jsp</result>
+			<result name="companyRegister">/WEB-INF/pages/index/companyRegister.jsp</result>
+			<result name="personRegister">/WEB-INF/pages/index/personRegister.jsp</result>
+			<result name="showComplaint">/WEB-INF/pages/index/complaint.jsp</result>
+			<result name="showPassword">/WEB-INF/pages/index/showPassword.jsp</result>
+			<result name="showPorjectApprove">/WEB-INF/pages/index/showPorjectApprove.jsp</result>
+			<result name="showProjectConstruct">/WEB-INF/pages/index/showProjectConstruct.jsp</result>
+			<result name="showProjectMining">/WEB-INF/pages/index/showProjectMining.jsp</result>
+			<result name="showProjectLand">/WEB-INF/pages/index/showProjectLand.jsp</result>
+			<result name="showProjectAim">/WEB-INF/pages/index/showProjectAim.jsp</result>
+			<result name="showCompanyBadrecord">/WEB-INF/pages/index/showCompanyBadrecord.jsp</result>
+			<result name="showPersonBadrecord">/WEB-INF/pages/index/showPersonBadrecord.jsp</result>
+			<result name="showCompanyHonor">/WEB-INF/pages/index/showCompanyHonor.jsp</result>
+			<result name="showPersonHonor">/WEB-INF/pages/index/showPersonHonor.jsp</result>
+			<result name="showCompanyCredit">/WEB-INF/pages/index/showCompanyCredit.jsp</result>
+			<result name="showCompanyCredit2">/WEB-INF/pages/index/showCompanyCredit2.jsp</result>
+			<result name="showCompanyApprove">/WEB-INF/pages/index/showCompanyApprove.jsp</result>
+			<result name="showPersonApprove">/WEB-INF/pages/index/showPersonApprove.jsp</result>
+			<result name="addCredit">/WEB-INF/pages/index/addCredit.jsp</result>
+			<result name="projectPublicList">/WEB-INF/pages/index/projectPublicList.jsp</result>
+			<result name="projectPublicApprove">/WEB-INF/pages/index/projectPublicApprove.jsp</result>
+			<result name="projectPublicConstruct">/WEB-INF/pages/index/projectPublicConstruct.jsp</result>
+			<result name="projectPublicLand">/WEB-INF/pages/index/projectPublicLand.jsp</result>
+			<result name="projectPublicMining">/WEB-INF/pages/index/projectPublicMining.jsp</result>
+			<result name="projectPublicAim">/WEB-INF/pages/index/projectPublicAim.jsp</result>
+			<result name="creditPublicList">/WEB-INF/pages/index/creditPublicList.jsp</result>
+			<result name="creditPublicCompanyHonor">/WEB-INF/pages/index/creditPublicCompanyHonor.jsp</result>
+			<result name="creditPublicCompanyBadrecord">/WEB-INF/pages/index/creditPublicCompanyBadrecord.jsp</result>
+			<result name="creditPublicCompanyNotice">/WEB-INF/pages/index/creditPublicCompanyNotice.jsp</result>
+			<result name="creditPublicCompanyIntegrity">/WEB-INF/pages/index/creditPublicCompanyIntegrity.jsp</result>
+			<result name="creditPublicPersonIntegrity">/WEB-INF/pages/index/creditPublicPersonIntegrity.jsp</result>
+			<result name="creditPublicPersonHonor">/WEB-INF/pages/index/creditPublicPersonHonor.jsp</result>
+			<result name="creditPublicPersonBadrecord">/WEB-INF/pages/index/creditPublicPersonBadrecord.jsp</result>
+			<result name="creditComPublicList">/WEB-INF/pages/index/creditComPublicList.jsp</result>
+			<result name="complaint">/WEB-INF/pages/index/complaint.jsp</result>
+			<result name="showComplaintAdd">/WEB-INF/pages/index/complaintAdd.jsp</result>
+
+			<result name="constructRegister">/WEB-INF/pages/index/constructRegister.jsp</result>
+
+			<result name="rightCompany">/WEB-INF/pages/index/rightCompany.jsp</result>
+			<result name="showCompanyBaseinfo">/WEB-INF/pages/index/showCompanyBaseinfo.jsp</result>
+			<result name="showPersonBaseinfo">/WEB-INF/pages/index/showPersonBaseinfo.jsp</result>
+			<result name="showCompanyQualification">/WEB-INF/pages/index/showCompanyQualification.jsp</result>
+			<result name="showPersonQualification">/WEB-INF/pages/index/showPersonQualification.jsp</result>
+			<result name="creditPublicCompanyInfo">/WEB-INF/pages/index/creditPublicCompanyInfo.jsp</result>
+			<result name="creditPublicCompanyQualification">/WEB-INF/pages/index/creditPublicCompanyQualification.jsp</result>
+			<result name="creditPublicPersonQualification">/WEB-INF/pages/index/creditPublicPersonQualification.jsp</result>
+			<result name="rightNews">/WEB-INF/pages/index/rightNews.jsp</result>
+			<result name="rightNotice">/WEB-INF/pages/index/rightNotice.jsp</result>
+			
+			<result name="ajaxProjectApprove">/WEB-INF/pages/index/ajaxProjectApprove.jsp</result>
+			<result name="ajaxProjectCoustruct">/WEB-INF/pages/index/ajaxProjectCoustruct.jsp</result>
+			<result name="ajaxProjectLand">/WEB-INF/pages/index/ajaxProjectLand.jsp</result>
+			<result name="ajaxProjectAim">/WEB-INF/pages/index/ajaxProjectAim.jsp</result>
+			
+
+			<result name="ajaxCompanyCredit">/WEB-INF/pages/index/ajaxCompanyCredit.jsp</result>
+			<result name="ajaxCompanyInfo">/WEB-INF/pages/index/ajaxCompanyInfo.jsp</result>
+			<result name="ajaxCompanyQualification">/WEB-INF/pages/index/ajaxCompanyQualification.jsp</result>
+			<result name="ajaxPersonQualification">/WEB-INF/pages/index/ajaxPersonQualification.jsp</result>
+			
+			
+			<result name="ajaxCompanyHonor">/WEB-INF/pages/index/ajaxCompanyHonor.jsp</result>
+			<result name="ajaxCompanyBadrecord">/WEB-INF/pages/index/ajaxCompanyBadrecord.jsp</result>
+			
+			<result name="ajaxCompany">/WEB-INF/pages/index/ajaxCompany.jsp</result>
+			<result name="ajaxPerson">/WEB-INF/pages/index/ajaxPerson.jsp</result>
+			<result name="ajaxDataCount">/WEB-INF/pages/index/ajaxDataCount.jsp</result>
+			<result name="taskCount">/WEB-INF/pages/index/taskCount.jsp</result>
+			<result name="dataCount">/WEB-INF/pages/index/dataCount.jsp</result>
+			<result name="showAlexaData">/WEB-INF/pages/index/showAlexaData.jsp</result>
+			
+			<result name="downloadExcelFile" type="redirect">download.action?fileName=${fileName}</result>
+			
+		</action>
+		
+		<action name="download" class="com.kjlink.ahpips.web.action.info.DownloadExcelAction">
+			<result name="downloadSuccess" type="stream">
+				<param name="contentDisposition">attachment;filename="${fileName}"</param>
+				<param name="inputName">downloadFile</param>
+			</result>
+		</action>
+				
+		
+		<action name="projectCoder_*" method="{1}" class="com.kjlink.ahpips.web.action.project.ProjectCoderAction">
+			<result name="projectCoderAdd">/WEB-INF/pages/index/projectCoderAdd.jsp</result>
+			<result name="projectCoderView">/WEB-INF/pages/index/projectCoderView.jsp</result>
+			<result name="projectCoderList">/WEB-INF/pages/index/projectCoderList.jsp</result>
+			<result name="redirectInit" type="redirect">/projectCoder_init.action</result>
+		</action>
+		<action name="pt_*" class="com.kjlink.ahpips.web.action.PublicAction" method="index">
+			<result name="old">/WEB-INF/pages/index/old.jsp</result>
+			<result name="index">/WEB-INF/pages/index/index.jsp</result>
+			<result name="340100000">/platform/340100000/index.jsp</result>
+			<result name="340123000">/platform/340100000/340123000/index.jsp</result>
+		</action>
+		
+		<action name="zl_*" class="com.kjlink.ahpips.web.action.PublicAction" method="index">
+			<result name="index">/WEB-INF/pages/index/index.jsp</result>
+			<result name="340000003">/platform/340000003/index.jsp</result>
+			<result name="hfjxw">/platform/hefei/hfjxw/index.jsp</result>
+			<result name="340000006">/platform/340000006/index.jsp</result>
+		</action>
+		
+		<action name="gk_*" class="com.kjlink.ahpips.web.action.PublicAction" method="index">
+			<result name="index">/WEB-INF/pages/index/template.jsp</result>
+		</action>
+		<action name="nv_*" class="com.kjlink.ahpips.web.action.PublicAction" method="index">
+			<result name="index">/WEB-INF/pages/index/testNavigate.jsp</result>
+		</action>
+		<action name="defaultAction" class="com.kjlink.ahpips.web.action.PublicAction" method="invalidPath"></action>
+	</package>
+	
+	
+	<package name="default" extends="no_authenticate" abstract="true">
+		<interceptors>
+			<interceptor name="securityAuthenticate" class="com.kjlink.ahpips.web.interceptor.SecurityAuthenticateInterceptor">
+				<param name="excludeMethods"><!-- 不需要进行权限验证的方法列表，以逗号分隔 -->
+				changePwdReq,changePwd,query,checkCode,showAccount,showPassword,editPassword,checkAccountPw,updateAccount,addAccount,execute
+				</param>
+			</interceptor>
+			
+			 <interceptor-stack name="myStack">
+			 	<interceptor-ref name="securityAuthenticate" />
+			 	<interceptor-ref name="paramsPrepareParamsStack" />
+			 </interceptor-stack>
+		</interceptors>
+		
+		<default-interceptor-ref name="myStack" />
+	</package>
+
+	 <constant name="struts.multipart.maxSize" value="53687091200"/>
+</struts>    

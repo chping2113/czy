@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+
+	<package name="system" extends="default" namespace="/system">
+			
+		<action name="credit_*" method="{1}" class="com.kjlink.ahpips.web.action.system.CreditAction">
+		
+		</action>
+		
+		<action name="user_*" method="{1}" class="com.kjlink.ahpips.web.action.system.UserAction">
+			<result name="listUser">/WEB-INF/pages/system/listUser.jsp</result>
+			<result name="addUser">/WEB-INF/pages/system/addUser.jsp</result>
+			<result name="viewUser">/WEB-INF/pages/system/viewUser.jsp</result>
+			<result name="roleViewUser">/WEB-INF/pages/system/roleViewUser.jsp</result>
+			<result name="changePwd">/WEB-INF/pages/system/changePwd.jsp</result>
+			<result name="redirectInit" type="redirect">/system/user_query.action?pageNo=${pageNo}</result>
+		</action>
+		
+		<action name="release_*" method="{1}" class="com.kjlink.ahpips.web.action.system.ReleaseAction">
+			<result name="releaseList">/WEB-INF/pages/system/releaseList.jsp</result>
+			<result name="moreList">/WEB-INF/pages/system/moreList.jsp</result>
+		</action>
+		
+		<action name="userUpload_*" method="{1}" class="com.kjlink.ahpips.web.action.system.UserAction">
+			<result name="uploadSucc">/WEB-INF/pages/system/uploadSucc.jsp</result>
+			<interceptor-ref name="fileUpload">
+				<param name="maximumSize">8388608</param>
+			</interceptor-ref>
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+		</action>
+		
+		
+		<action name="role_*" method="{1}" class="com.kjlink.ahpips.web.action.system.RoleAction">
+			<result name="roleList">/WEB-INF/pages/system/listRole.jsp</result>
+			<result name="addRole">/WEB-INF/pages/system/addRole.jsp</result>
+			<result name="viewRole">/WEB-INF/pages/system/viewRole.jsp</result>
+			<result name="roleUserList">/WEB-INF/pages/system/roleUserList.jsp</result>
+			<result name="setPower">/WEB-INF/pages/system/setPower.jsp</result>
+			<result name="resourceTree">/WEB-INF/pages/system/resourceTree.jsp</result>
+			<result name="addResource">/WEB-INF/pages/system/addResource.jsp</result>
+			<result name="viewResource">/WEB-INF/pages/system/viewResource.jsp</result>
+			<result name="redirectInit" type="redirect">/system/role_list.action?pageNo=${pageNo}</result>
+			<result name="redirectResourceTree" type="redirect">/system/role_buildResourceTree.action?roleId=${roleId}</result>
+			<result name="redirectPowerRequest" type="redirect">/system/role_setPowerRequest.action?id=${id}&amp;actionType=${actionType}</result>
+		</action>
+		
+		<action name="site_*" method="{1}" class="com.kjlink.ahpips.web.action.system.SiteAction">
+			<result name="siteTree">/WEB-INF/pages/system/siteTree.jsp</result>
+			<!-- <result name="addSite">/WEB-INF/pages/system/addSite.jsp</result> -->
+			<result name="viewStickSet">/WEB-INF/pages/system/viewStickSet.jsp</result>
+			<result name="siteList">/WEB-INF/pages/system/siteList.jsp</result>
+			<!-- 平台管理 -->
+			<result name="listSite">/WEB-INF/pages/system/listSite.jsp</result>
+			<result name="addSite">/WEB-INF/pages/system/addSite.jsp</result>
+			<result name="viewSite">/WEB-INF/pages/system/viewSite.jsp</result>	
+			
+		</action>
+		
+		<action name="siteUpload_*" method="{1}" class="com.kjlink.ahpips.web.action.system.SiteAction">
+			<result name="uploadSucc">/WEB-INF/pages/system/uploadSucc.jsp</result>
+			<interceptor-ref name="fileUpload">
+				<param name="maximumSize">8388608</param>
+			</interceptor-ref>
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+		</action>
+		
+		<action name="company_*" method="{1}" class="com.kjlink.ahpips.web.action.system.CompanyAction">
+			<result name="listCompany">/WEB-INF/pages/system/listCompany.jsp</result>
+			<result name="addCompany">/WEB-INF/pages/system/addCompany.jsp</result>
+			<result name="viewCompany">/WEB-INF/pages/system/viewCompany.jsp</result>
+			<result name="approveCompany">/WEB-INF/pages/system/approveCompany.jsp</result>
+			<result name="companyList">/WEB-INF/pages/system/companyList.jsp</result>
+			<result name="validCompany">/WEB-INF/pages/system/validCompany.jsp</result>
+			<result name="redirectInit" type="redirect">/system/company_query.action?pageNo=${pageNo}</result>
+		</action>
+		
+		<action name="district_*" method="{1}" class="com.kjlink.ahpips.web.action.system.DistrictAction">
+			<result name="districtList">/WEB-INF/pages/system/districtList.jsp</result>
+		</action>
+		
+		<action name="person_*" method="{1}" class="com.kjlink.ahpips.web.action.system.PersonAction">
+			<result name="listPerson">/WEB-INF/pages/system/listPerson.jsp</result>
+			<result name="addPerson">/WEB-INF/pages/system/addPerson.jsp</result>
+			<result name="viewPerson">/WEB-INF/pages/system/viewPerson.jsp</result>
+			<result name="approvePerson">/WEB-INF/pages/system/approvePerson.jsp</result>
+			<result name="personList">/WEB-INF/pages/system/personList.jsp</result>
+			<result name="validPerson">/WEB-INF/pages/system/validPerson.jsp</result>
+			<result name="redirectInit" type="redirect">/system/person_query.action?pageNo=${pageNo}</result>
+		</action>
+		<action name="construct_*" method="{1}" class="com.kjlink.ahpips.web.action.system.ConstructAction">
+			<result name="listConstruct">/WEB-INF/pages/system/listConstruct.jsp</result>
+			<result name="addConstruct">/WEB-INF/pages/system/addConstruct.jsp</result>
+			<result name="viewConstruct">/WEB-INF/pages/system/viewConstruct.jsp</result>
+			<result name="approveConstruct">/WEB-INF/pages/system/approveConstruct.jsp</result>
+			<result name="constructList">/WEB-INF/pages/system/constructList.jsp</result>
+			<result name="validConstruct">/WEB-INF/pages/system/validConstruct.jsp</result>
+			<result name="redirectInit" type="redirect">/system/construct_query.action?pageNo=${pageNo}</result>
+		</action>
+		
+		
+		<action name="account_*" method="{1}" class="com.kjlink.ahpips.web.action.system.AccountAction">
+			<result name="showAccount">/WEB-INF/pages/system/showAccount.jsp</result>
+			<result name="showPassword">/WEB-INF/pages/system/showPassword.jsp</result>
+			<result name="updateAccount">/WEB-INF/pages/system/updateAccount.jsp</result>
+			<result name="updateAccountConstruct">/WEB-INF/pages/system/updateAccountConstruct.jsp</result>
+			<result name="updateAccountCompany">/WEB-INF/pages/system/updateAccountCompany.jsp</result>
+			<result name="updateAccountPerson">/WEB-INF/pages/system/updateAccountPerson.jsp</result>
+		</action>
+		
+		<action name="homePage_*" method="{1}" class="com.kjlink.ahpips.web.action.system.HomePageAction">
+			<result name="homePageList">/WEB-INF/pages/system/homePageList.jsp</result>
+			<interceptor-ref name="fileUpload">
+				<param name="maximumSize">8388608</param>
+				<!-- param name="allowedTypes">application/msword,image/jpeg</param -->
+			</interceptor-ref>
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+			<interceptor-ref name="securityAuthenticate" />
+			
+			<result name="addProject">/WEB-INF/pages/system/addProject.jsp</result>
+			<result name="homePageView">/WEB-INF/pages/system/projectView.jsp</result>
+			<result name="homePageEdit">/WEB-INF/pages/system/addProject.jsp</result>
+			<result name="redirectInit" type="redirect">/system/homePage_init.action</result>
+		</action>
+		
+		
+		<action name="navigate_*" method="{1}" class="com.kjlink.ahpips.web.action.system.NavigateAction">
+			<result name="navigateList">/WEB-INF/pages/system/navigateList.jsp</result>
+			<result name="navigateAdd">/WEB-INF/pages/system/navigateAdd.jsp</result>
+			<result name="redirectInit" type="redirect">/system/navigate_init.action?ptype=${ptype}&amp;parentId=${parentId}</result>
+			<result name="navigateView">/WEB-INF/pages/system/navigateView.jsp</result>
+			<result name="navigateEdit">/WEB-INF/pages/system/navigateAdd.jsp</result>
+		</action>
+		
+		<action name="alexa_*" method="{1}" class="com.kjlink.ahpips.web.action.system.AlexaAction">
+			<result name="alexaList">/WEB-INF/pages/system/alexaList.jsp</result>
+			<result name="alexaAdd">/WEB-INF/pages/system/alexaAdd.jsp</result>
+			<result name="alexaView">/WEB-INF/pages/system/alexaView.jsp</result>
+		</action>
+	</package>
+	
+</struts>    

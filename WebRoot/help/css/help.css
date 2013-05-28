@@ -1,0 +1,43 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+body,*{ margin:0px; padding:0px;}
+body{ font:Arial, Helvetica, sans-serif;
+      font-size:12px;
+	  
+}
+table{ border-collapse:collapse; border-spacing:0; background:#f8f7f7; } 
+img{ border:0px;}
+
+.content{ margin:0 auto; padding:0px;
+		  width:960px;
+
+}
+
+.top{ background:url(../images/z_bg.jpg) repeat-x;
+      height:49px;
+	  margin-top:20px;
+}
+.top span{ position:relative;left:60px;top:-58px; color:#fff; font-size:25px; font-weight:bold;}
+.top img{ position:relative;left:50px; top:-18px;}
+
+
+.main_text{ background:#f7ffff; padding:40px 60px;}
+
+.search{ height:35px; background:#fff; border:1px solid #b7d9fe;}
+.search_bg{ height:33px; background:#deeefe; margin:1px; line-height:33px; padding-left:10px; text-align:center;}
+.search_bg a:link,.search_bg a:visited{ margin-right:10px; text-decoration:none; color:#245aab; font-size:14px; }
+.search_bg a:hover{ color:#0000ff;}
+
+.title{ height:24px; background:#e4ecf7; line-height:190%; color:#1958b9; margin:10px 0px 3px 0px; font-size:12px; font-weight:bold;
+        text-indent:10px;}
+.text h4{ margin:5px 0px;font-size:12px; padding-left:10px;}
+.text p{ line-height:180%; padding-left:22px; color:#333;}
+.text img{ margin:5px 10px 10px 22px;}
+
+.return{ text-align:right; font-size:12px;}
+.return a:link,.return a:visited{ color:#73839d; text-decoration:none;}
+.return a:hover{ color:#208dde; text-decoration:underline; }
+hr{ border: 1px dotted #c8d4e5; margin-top:-5px;}
+

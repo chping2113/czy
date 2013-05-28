@@ -1,0 +1,89 @@
+
+
+body,*{ margin:0px; padding:0px; 
+        font-family:Arial, Helvetica, sans-serif; 
+		font-size:14px;
+		}
+
+body{  background:#e22a2a url(../images/login/content_bg.jpg) repeat-x;
+}
+img{ border:0px;}
+.content{ margin:0px auto; padding:0px;
+          background:url(../images/login/main_bg.jpg) no-repeat;
+          width:1002px;
+
+		 
+}
+.main_img{ background:url(../images/login/zh.jpg) no-repeat;
+		   height:582px;
+		   margin:15px 0px 0px 50px;
+}
+
+.login_text{ width:402px;
+             height:318px;
+			 position:relative;
+			 left:224px;
+			 top:169px;
+}
+.login_top{ background: url(../images/login/login_topbg.jpg) no-repeat;
+            height:41px;
+            font-size:14px;
+			font-weight:bold;
+			color:#9c3e0d;
+			text-indent:55px;
+			line-height:45px;
+			_line-height:41px;
+}
+.login_bottom{ background:url(../images/login/bottom_bg.jpg) no-repeat;
+               height:211px;
+			   
+			   
+}
+.err_msg {
+	text-align:center; 
+	font-size:14px; 
+	font-weight:bold;
+	color:#FFFFFF;
+	padding:8px 0px 5px 0px;
+}
+
+.bottom_p{ position:relative;
+           left:80px;
+		   top:8px;
+		   color:#fff;
+		   width:402px;
+}
+.bottom_p p{ margin-bottom:10px;
+
+}
+.bottom_p p span{ margin-left:13px;}
+
+.bottom_p .input{ border:1px solid #915958;
+                 margin-left:13px;
+				 height:22px;
+				 width:160px;
+				 vertical-align:-5px;
+				 line-height:22px;
+}
+.login_btn{ text-indent:75px;}
+.login_btn a:link,.login_btn a:visited{ color:#FFFFFF; text-decoration:none; font-size:12px;
+}
+.login_btn a:hover{ color: #FFFFFF;text-decoration:none}
+.login_btn img{ margin-right:15px; vertical-align:-5px;}
+.botton_text{ position:relative;
+              left:15px;
+			  top:30px;
+			  font-size:12px;
+			  color:#fff;
+
+}
+.alpha_bg{ background:url(../images/login/alpha.jpg) no-repeat;
+           height:65px;
+
+}
+
+
+
+
+
+

@@ -1,0 +1,72 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ include file="/WEB-INF/pages/common/include/core.jsp"%>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>栏目编辑</title>
+	<script type="text/javascript" src="js/info/scolumn.js"></script>
+	<script type="text/javascript">
+		var pageNo = "${pageNo}";
+		var parentId = "${empty parentScolumn ? null : parentScolumn.id}";
+		var siteId = "${siteId}";
+		$(function(){
+			$.brady.validator.validate("addForm", validator_config); //初始化表单验证构架
+		});
+	</script>
+</head>
+<body>
+  
+ <div class="right_main">
+ 	<form action="info/scolumn_query.action" method="post">
+    <div class="add_top">首页 > 平台管理 > 一级栏目编辑 </div>
+    <div class="listop_search">一级栏目列表
+    <a href="javascript:add()"><img src="images/add.jpg" border="0"/></a>
+    <a href="system/site_list.action"><img src="images/back012.jpg" border="0"/></a>
+    <span class="search">
+	    <input type="text" class="search_input" id="title"  name="queryStr" value="${empty sessionScope.scolumn_queryStr ? "请输入栏目标题" : sessionScope.scolumn_queryStr }"  onclick="clearDefaultText(this,'')" />
+	    <input type="image" src="images/search_btn.gif" class="search_image"  onclick="deleteDefaultText('#title','请输入栏目标题')"/>    
+   		 <input type="hidden" name="siteId" value="${siteId}" />
+    </span> 
+    </div>
+    </form>
+    <table cellpadding="0" cellspacing="0" class="table_list">
+    <tr>
+      <th width="30%">栏目名称</th>
+      <th width="20%">状态</th>
+      <th>操作</th>
+     </tr>
+     
+     <s:iterator value="pageInfo.pageData" var="scolumn">
+     <tr>
+       <td name="${scolumn.name }">${util:limitText(scolumn.name,30) }</td>
+       
+       <td name="${scolumn.state }">
+       	<s:if test="state==1">有效</s:if>
+       	<s:elseif test="state==0">无效</s:elseif>
+       </td>
+       
+       <td class="table_list_add">
+       	  <a href="javascript:view(${scolumn.id })">查看</a>
+      
+         <!--  <a href="info/scolumn_view.action?parentId=${parentId }&id=${scolumn.id }&pageNo=${pageNo}">查看</a>
+         <a href="info/scolumn_view.action?id=${scolumn.id }&pageNo=${pageNo}&type=${type}">查看</a> -->
+         <a href="javascript:edit(${scolumn.id })">编辑</a>
+         <a href="info/scolumn_listSecond.action?parentId=${scolumn.id}&pageNo=${pageNo}&siteId=${siteId } ">下级栏目</a>
+         <a href="javascript:del(${scolumn.id })">删除</a>
+       </td>
+     </tr>
+     </s:iterator>
+     
+    
+     </table>
+     
+     <div class="page">
+     	<brady:page url="${pageUrl }" pageInfo="${pageInfo }" params="${pageParam }" />
+     </div>
+    
+ </div>  <!--right_main-->
+ 
+ <brady:confirm />
+</body>

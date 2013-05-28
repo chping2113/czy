@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<taglib xmlns="http://java.sun.com/xml/ns/j2ee"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd"
+  version="2.0">
+  
+ <description>用于Web开发的函数工具库</description>
+ <display-name>Web util of brady</display-name>
+ <tlib-version>1.1</tlib-version>
+ <short-name>util</short-name>
+ <uri>/brady/util</uri>
+ 
+ <function>
+  <description>从指定的Map中通过key来取数据</description>
+  <name>getFromMap</name>
+  <function-class>com.brady.common.util.MyToolkit</function-class>
+  <function-signature>java.lang.Object getFromMap(java.util.Map, java.lang.Object)</function-signature>
+  <example>Name: ${util:getFromMap(map, id)}</example>
+ </function>
+ 
+ <function>
+  <description>比较子串是否被包含在母串里面</description>
+  <name>contains</name>
+  <function-class>com.brady.common.util.MyToolkit</function-class>
+  <function-signature>boolean contains(java.lang.String, java.lang.String)</function-signature>
+  <example>Name: ${util:contains(str, substr)}</example>
+ </function>
+ 
+ <function>
+  <description>按照指定的格式来格式化日期信息</description>
+  <name>formatDateTime</name>
+  <function-class>com.brady.common.util.MyToolkit</function-class>
+  <function-signature>java.lang.String formatDateTime(java.util.Date, java.lang.String)</function-signature>
+  <example>Name: ${util:formatDateTime(birthday, "yyyy-MM-dd")}</example>
+ </function>
+ 
+ <function>
+  <description>把字符串按照一定的格式解析成java.util.Date类型</description>
+  <name>parseDate</name>
+  <function-class>com.brady.common.util.MyToolkit</function-class>
+  <function-signature>java.util.Date parseDate(java.lang.String, java.lang.String)</function-signature>
+  <example>Name: ${util:parseDate("2008-10-20", "yyyy-MM-dd")}</example>
+ </function>
+ 
+ <function>
+  <description>把int型的秒转换成HH:mm:ss形式的字符串形式</description>
+  <name>convertSecondsToTimeLength</name>
+  <function-class>com.brady.common.util.MyToolkit</function-class>
+  <function-signature>java.lang.String convertSecondsToTimeLength(int)</function-signature>
+  <example>${util:convertSecondsToTimeLength(202)}</example>
+ </function>
+ 
+  <function>
+  <description>限制字符串的长度，如果超出指定的长度，则以...显示</description>
+  <name>limitText</name>
+  <function-class>com.kjlink.common.util.StringUtil</function-class>
+  <function-signature>java.lang.String limitText(java.lang.String, int)</function-signature>
+  <example>${util:limitText("hello world.", 20)}</example>
+ </function>
+ 
+ <function>
+  <description>屏蔽证件号码隐私</description>
+  <name>limitCode</name>
+  <function-class>com.kjlink.common.util.StringUtil</function-class>
+  <function-signature>java.lang.String limitCode(java.lang.String,int,int,char)</function-signature>
+  <example>${util:limitCode("hello world.",2,4,'*')}</example>
+ </function>
+ 
+ <function>
+  <description>屏蔽科学计数法</description>
+  <name>showAll</name>
+  <function-class>com.kjlink.common.util.StringUtil</function-class>
+  <function-signature>java.lang.String showAll(java.lang.Double)</function-signature>
+  <example>${util:limitCode(22222222222222)}</example>
+ </function>
+ 
+  <function>
+  <description>把字符串转换成HTML文本</description>
+  <name>htmlEncode</name>
+  <function-class>com.brady.common.util.StringUtil</function-class>
+  <function-signature>java.lang.String htmlEncode(java.lang.String)</function-signature>
+  <example>${util:htmlEncode("abcd")}</example>
+ </function>
+
+  <function>
+    <description>根据pattern指定的格式来格式化一个double型数</description>
+    <name>formatNumber</name>
+    <function-class>com.brady.common.util.MyToolkit</function-class>
+    <function-signature>java.lang.String formatNumber(double, java.lang.String)</function-signature>
+    <example>Name: ${util:formatNumber(23.22, "####.##")}</example>  
+  </function>
+
+</taglib>

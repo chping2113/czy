@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+
+	<package name="project" extends="default" namespace="/project">
+		
+		<action name="project_*" method="{1}" class="com.kjlink.ahpips.web.action.project.ProjectAction">
+			<result name="projectList">/WEB-INF/pages/project/projectList.jsp</result>
+			<result name="projectConstructList">/WEB-INF/pages/project/projectConstructList.jsp</result>
+			<result name="redirectInit" type="redirect">/project/project_init.action</result>
+			<result name="projectPublicList">/WEB-INF/pages/project/projectPublicList.jsp</result>
+			<result name="projectAdd">/WEB-INF/pages/project/projectAdd.jsp</result>
+			<result name="projectView">/WEB-INF/pages/project/projectView.jsp</result>
+			<result name="projectApprove">/WEB-INF/pages/project/projectApprove.jsp</result>
+		</action>
+		<action name="approveProject_*" method="{1}" class="com.kjlink.ahpips.web.action.project.ProjectAction">
+			<result name="projectApprove">/WEB-INF/pages/project/projectApprove.jsp</result>
+		</action>
+		
+		<action name="projectApprove_*" method="{1}" class="com.kjlink.ahpips.web.action.project.ProjectApproveAction">
+			<result name="projectApproveAdd">/WEB-INF/pages/project/projectApproveAdd.jsp?instr=${instr}</result>
+			<result name="projectApprovesAdd">/WEB-INF/pages/project/projectApprovesAdd.jsp?instr=${instr}</result>
+			<result name="projectApproveDesignAdd">/WEB-INF/pages/project/projectApproveDesignAdd.jsp</result>
+			<result name="projectApproveEnergyAdd">/WEB-INF/pages/project/projectApproveEnergyAdd.jsp</result>
+			<result name="projectApproveAddressAdd">/WEB-INF/pages/project/projectApproveAddressAdd.jsp</result>
+			<result name="projectApproveLandAdd">/WEB-INF/pages/project/projectApproveLandAdd.jsp</result>
+			<result name="projectApproveEnvironmentAdd">/WEB-INF/pages/project/projectApproveEnvironmentAdd.jsp</result>
+			<result name="projectApproveStartReportsAdd">/WEB-INF/pages/project/projectApproveStartReportsAdd.jsp</result>
+			
+			<result name="projectApproveRelease">/WEB-INF/pages/project/projectApproveRelease.jsp</result>
+			<result name="projectApproveView">/WEB-INF/pages/project/projectApproveView.jsp</result>
+			<result name="projectApproveList">/WEB-INF/pages/project/projectApproveList.jsp</result>
+			<result name="projectApproveToDoList">/WEB-INF/pages/project/projectApproveToDoList.jsp</result>
+			<result name="redirectInit" type="redirect">/project/projectApprove_queryBack.action?type=${type}&amp;pageNo=${pageNo}</result>
+			<result name="projectList" type="redirect">project/project_initPublic.action?type=${type}</result>
+			<result name="grabList">/WEB-INF/pages/project/listGrab.jsp</result>
+		    <result name="uploadSucc">/uploadFrame.jsp</result>
+		    
+		</action>
+		
+		<action name="projectConstruct_*" method="{1}" class="com.kjlink.ahpips.web.action.project.ProjectConstructAction">
+			<result name="projectConstructAdd">/WEB-INF/pages/project/projectConstructAdd.jsp</result>
+			<result name="projectConstructView">/WEB-INF/pages/project/projectConstructView.jsp</result>
+			<result name="projectConstructList">/WEB-INF/pages/project/projectConstructList.jsp</result>
+			<result name="auditStatistics">/WEB-INF/pages/project/auditStatistics.jsp</result>
+			<result name="redirectInit" type="redirect">/project/projectConstruct_query.action?type=${type}&amp;pageNo=${pageNo}</result>
+			<result name="projectList" type="redirect">project/project_initPublic.action?type=${type}</result>
+		</action>
+		
+		<action name="projectAim_*" method="{1}" class="com.kjlink.ahpips.web.action.project.ProjectAimAction">
+			<result name="projectAimAdd">/WEB-INF/pages/project/projectAimAdd.jsp</result>
+			<result name="projectAimView">/WEB-INF/pages/project/projectAimView.jsp</result>
+			<result name="projectAimList">/WEB-INF/pages/project/projectAimList.jsp</result>
+			<result name="redirectInit" type="redirect">/project/projectAim_query.action?pageNo=${pageNo}</result>
+		</action>
+		<action name="projectLand_*" method="{1}" class="com.kjlink.ahpips.web.action.project.ProjectLandAction">
+			<result name="projectLandAdd">/WEB-INF/pages/project/projectLandAdd.jsp</result>
+			<result name="projectLandView">/WEB-INF/pages/project/projectLandView.jsp</result>
+			<result name="approveUser">/WEB-INF/pages/project/approveUser.jsp</result>
+			<result name="projectList" type="redirect">project/project_initPublic.action?type=${type}</result>
+			<result name="projectLandList">/WEB-INF/pages/project/projectLandList.jsp</result>
+			<result name="redirectInit" type="redirect">/project/projectLand_query.action?type=${type}&amp;pageNo=${pageNo}</result>
+		</action>
+		
+		<action name="projectMining_*" method="{1}" class="com.kjlink.ahpips.web.action.project.ProjectMiningAction">
+			<result name="projectMiningAdd">/WEB-INF/pages/project/projectMiningAdd.jsp</result>
+			<result name="projectMiningView">/WEB-INF/pages/project/projectMiningView.jsp</result>
+			<result name="projectList" type="redirect">project/project_initPublic.action?type=${type}</result>
+			<result name="projectMiningList">/WEB-INF/pages/project/projectMiningList.jsp</result>
+			<result name="redirectInit" type="redirect">/project/projectMining_query.action?type=${type}&amp;pageNo=${pageNo}</result>
+		</action>
+		<action name="projectApproveConfig_*" method="{1}" class="com.kjlink.ahpips.web.action.project.ProjectApproveConfigAction">
+			<result name="projectApproveConfigAdd">/WEB-INF/pages/project/projectApproveConfigAdd.jsp</result>
+			<result name="redirectInit"  type="redirect">>/project/projectApprove_init.action?type=1</result>
+		</action>
+		<action name="projectAegis_*" method="{1}" class="com.kjlink.ahpips.web.action.project.ProjectAegisAction">
+			<result name="projectAegisAdd">/WEB-INF/pages/project/projectAegisAdd.jsp</result>
+			<result name="projectAegisView">/WEB-INF/pages/project/projectAegisView.jsp</result>
+			<result name="projectAegisList">/WEB-INF/pages/project/projectAegisList.jsp</result>
+		</action>
+		
+		<action name="projectIssue_*" method="{1}" class="com.kjlink.ahpips.web.action.project.ProjectIssueAction">
+			<result name="projectIssueAdd">/WEB-INF/pages/project/projectIssueAdd.jsp</result>
+			<result name="projectIssueView">/WEB-INF/pages/project/projectIssueView.jsp</result>
+			<result name="projectIssueList">/WEB-INF/pages/project/projectIssueList.jsp</result>
+			<result name="listProjectIssue">/WEB-INF/pages/project/listProjectIssue.jsp</result>
+		</action>
+		
+	</package>
+	
+</struts>

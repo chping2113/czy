@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+           http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context-2.5.xsd
+           http://www.springframework.org/schema/aop
+           http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+           http://www.springframework.org/schema/tx 
+           http://www.springframework.org/schema/tx/spring-tx-2.5.xsd"
+     default-autowire="byName">
+           	
+	<!-- C3P0 connection pool data source  -->
+	<bean id="dataSource"
+		class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+		<property name="driverClass" value="com.mysql.jdbc.Driver"></property>
+		<property name="autoCommitOnClose" value="true"></property>
+		<property name="maxIdleTime" value="1800"></property> 
+		<property name="maxPoolSize" value="200"></property>
+		<property name="initialPoolSize" value="10"></property>
+		<property name="jdbcUrl" value="jdbc:mysql://192.168.80.150:3306/ahpips_db2?useUnicode=true&amp;characterEncoding=utf-8"></property>
+		<property name="user" value="root"></property>
+		<property name="password" value="kjlink@362541"></property>
+	</bean>
+	
+	<!--  
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+	    <property name="driverClassName"><value>oracle.jdbc.driver.OracleDriver</value></property>
+	    <property name="url"><value>jdbc:oracle:thin:@192.168.80.152:1521:kjlink</value></property>
+	    
+	    <property name="username" value= "KJLINK"></property>
+	    <property name="password" value="KJLINK"></property>
+	    <property name="maxActive">
+	      <value>100</value>
+	    </property>
+	    <property name="maxIdle">
+	      <value>2</value>
+	    </property>
+	    <property name="maxWait">
+	      <value>120000</value>
+	    </property>
+	    <property name="defaultAutoCommit">
+	      <value>true</value>
+	    </property>
+	</bean>
+	-->
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQL5InnoDBDialect</prop>
+				<prop key="hibernate.format_sql">true</prop>
+				<prop key="hibernate.show_sql">false</prop>
+				<prop key="hibernate.hbm2ddl.auto">update</prop>
+				
+				<prop key="hibernate.cache.use_second_level_cache">true</prop>
+				<prop key="hibernate.cache.provider_class">org.hibernate.cache.EhCacheProvider</prop>
+			</props>
+		</property>
+		<property name="packagesToScan">
+			<list>
+				<value>com.kjlink.ahpips.entity.system</value>
+				<value>com.kjlink.ahpips.entity.info</value>
+				<value>com.kjlink.ahpips.entity.credit</value>
+				<value>com.kjlink.ahpips.entity.project</value>
+			</list>
+		</property>
+	</bean>
+	
+	<!-- Hibernate Tranasction Manager -->
+	<bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	
+	<tx:advice id="txAdvice" transaction-manager="transactionManager">
+		<tx:attributes>
+			<tx:method name="find*" read-only="true" />	
+			<tx:method name="get*" read-only="true" />
+			<tx:method name="list*" read-only="true" />
+			
+			<tx:method name="*" />		
+		</tx:attributes>
+	</tx:advice>
+	
+	<aop:config>
+		<aop:advisor advice-ref="txAdvice" pointcut="execution(* com.kjlink.ahpips.service..*.*(..))"/>
+		<aop:advisor advice-ref="txAdvice" pointcut="execution(* com.brady.common.dao.*.*(..))"/>
+	</aop:config>
+	
+</beans>

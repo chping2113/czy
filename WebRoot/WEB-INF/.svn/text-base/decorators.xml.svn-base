@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<decorators defaultdir="/WEB-INF/decorators">
+	<!-- Any urls that are excluded will never be decorated by Sitemesh -->
+    <excludes>
+    	<pattern>/projectCoder_*</pattern>
+    	<pattern>/project/projectLand_approveUser.action*</pattern>
+    	<pattern>/system/organ_searchOrganForQucik.action*</pattern>
+    	<pattern>/system/organ_searchOrganForOrgan.action*</pattern>
+    	<pattern>/pub_gotoLogin.action*</pattern>
+    	<pattern>/pub_login.action*</pattern>
+    	<pattern>/pub_logout.action*</pattern>
+    	<pattern>/pub_welcome.action*</pattern>
+    	<pattern>/pub_showNews.action*</pattern>
+    	<pattern>/pub_showNotice.action*</pattern>
+    	<pattern>/pub_previewNews.action*</pattern>
+    	<pattern>/pub_previewNotice.action*</pattern>
+    	<pattern>/pub_showProject*</pattern>
+    	<pattern>/pub_showCompany*</pattern>
+    	<pattern>/pub_showPerson*</pattern>
+    	<pattern>/pub_addRequest.action</pattern>
+    	<pattern>/pub_projectPublic*.action*</pattern>
+    	<pattern>/pub_creditPublic*.action*</pattern>
+    	<pattern>/pub_showPorjectAegis.action*</pattern>
+    	<pattern>/pub_showCompanyBaseinfo*</pattern>
+    	<pattern>/credit/*_searchPerson.action</pattern>
+    	
+    	<pattern>/credit/*_searchCompany.action</pattern>
+    	<pattern>/credit/personBadrecord_changeAdd.action</pattern>
+    	<pattern>/credit/companyBadrecord_changeAdd.action</pattern>
+    	<pattern>/project/*_public*.action*</pattern>
+    	<pattern>/project/project_validateCode.action</pattern>
+    	<pattern>*_check*.action*</pattern>
+    	<pattern>*_*Req.action*</pattern>
+    	<pattern>*_show.action*</pattern>
+    	<pattern>/system/role_showResource.action*</pattern>
+    	<pattern>/pub_indexLogin.action</pattern>
+    	<pattern>/pub_subPassword.action</pattern>
+    	<pattern>/pub_add.action</pattern>
+    	<pattern>/pub_creditPasswordCheck.action</pattern>
+    	<pattern>/pub_complaintAdd.action</pattern>
+    	<pattern>/pub_companyRegisterAdd.action</pattern>
+    	<pattern>/pub_personRegisterAdd.action</pattern>
+    	<pattern>/pub_constructRegisterAdd.action</pattern>
+    	<pattern>/system/account_editPassword.action</pattern>
+    	
+    	<pattern>/system/organ_searchOrganForQucikZL.action</pattern>
+    	<pattern>/system/person_searchPersonForQucik.action</pattern>
+    	<pattern>/system/company_searchCompanyForQucik.action</pattern>
+    	<pattern>/system/district_searchDistrictForQucik.action</pattern>
+    	<pattern>/project/projectIssue_quickQuery.action</pattern>
+    	<pattern>/project/projectIssue_checkMaxRecord.action</pattern>
+    	<pattern>/info/notice_upload.action*</pattern>
+    	<pattern>/info/notice_initFile.action*</pattern>
+    	<pattern>*info/notice_largeFile.action*</pattern>
+    	<pattern>/info/notice_deleteFile.action*</pattern>
+    	<pattern>*info/news_largeFile.action*</pattern>
+    	<pattern>/info/news_upload.action*</pattern>
+    	<pattern>/info/news_initFile.action*</pattern>
+    	<pattern>/info/news_deleteFile.action*</pattern>
+    	<pattern>/info/scolumn_initProperty.action*</pattern>
+    	<pattern>/info/scolumn_deleteProperty.action*</pattern>
+    	<pattern>/project/projectApprove_initFile.action*</pattern>
+    	<pattern>/project/projectApprove_upload.action*</pattern>
+    	<pattern>*project/projectApprove_largeFile.action*</pattern>
+    	<pattern>/project/projectApprove_deleteFile.action*</pattern>
+    </excludes>
+    
+    
+    <!-- 后台管理页面模板 -->
+    <decorator name="main" page="main.jsp">
+        <pattern>/system/*.action*</pattern>
+        <pattern>/project/*_*.action*</pattern>
+        <pattern>/credit/*_*.action*</pattern>
+        <pattern>/info/*.action*</pattern>
+    </decorator>
+</decorators>

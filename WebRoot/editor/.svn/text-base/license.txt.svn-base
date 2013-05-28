@@ -1,0 +1,18 @@
+http://www.kindsoft.net/lgpl_license.html
+
+用法
+下载KindEditor最新版本。打开下载页面
+解压zip文件，将所有文件上传到您的网站程序目录下。例如：http://您的域名/editor/
+要显示编辑器的位置添加TEXTAREA输入框。
+注：id必须指定唯一值，还有有些浏览器上不设宽度和高度可能显示有问题，所以最好设一下宽度和高度。宽度和高度可用inline样式设置，也可用编辑器属性传进去。
+<textarea id="your_editor_id" name="content" cols="100" rows="8" style="width:700px;height:300px;"></textarea>
+                                
+该页面添加以下代码。
+<script charset="utf-8" src="/editor/kindeditor.js"></script>
+<script>
+        KE.show({
+                id : 'your_editor_id'
+        });
+</script>
+                                
+除id之外还可以设置其它的属性，具体属性请参考编辑器属性。

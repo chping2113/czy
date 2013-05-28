@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!-- 用于自动化build ahpips项目的Ant文件, by zhanggj at 2011.1.25 -->
+
+<project name="ahpips" default="compile" basedir=".">
+	<property name="target" value="1.6"/>
+	<property name="workingcopy.dir" value="."></property>
+	<property name="src.dir" location="src/" />
+	<property name="lib.dir" location="WebRoot/WEB-INF/lib/" />
+	<property name="classes.dir" location="WebRoot/WEB-INF/classes/" />
+	<property name="webroot.dir" location="WebRoot/" /> <!-- WebRoot路径 -->
+	<property name="war.dir" location="." /> <!-- 打包后的war文件存放路径 -->
+  	<property name="war.name" value="ahpips.war" />
+	<property name="tomcat.home" value="D:/apache-tomcat-6.0.29" />
+
+	<property name="svn.server" value="svn://218.22.63.9/ahpips/003Development/Trunk" />
+	
+	<!--
+	<property name="server" value="192.168.120.37" />
+	<property name="ftp.username" value="oa_pms" />
+	<property name="ftp.password" value="kjlink" />
+-->	
+	
+	<taskdef name="svn" classname="org.tigris.subversion.svnant.SvnTask" />
+
+	<target name="init">
+		<echo message="开始准备项目ahpips的编译环境..." />
+		<delete dir="${classes.dir}"/>
+		<mkdir dir="${classes.dir}"/>
+		<echo message="项目ahpips的编译环境初始化成功..." />
+	</target>
+
+	<target name="checkout" depends="init">
+		<echo message="开始从SVN服务器上检出代码..." />
+		<svn username="lvyf" password="kjlinklvyf">
+			<checkout url="${svn.server}" destPath="${workingcopy.dir}" />
+			<!--
+				<update dir="${workingcopy.dir}" />
+			-->
+		</svn>
+	</target>
+	
+	<target name="compile" depends="init">
+	    <javac srcdir="${src.dir}" destdir="${classes.dir}"  nowarn="on" debug="off" target="${target}">
+	    	<classpath>
+	    		<fileset dir="${lib.dir}" />
+	    	</classpath>
+	    </javac>
+	    
+	    <copy todir="${classes.dir}">
+	  		<fileset dir="${src.dir}">
+	  			<exclude name="**/*.java"/>
+	  			<exclude name=".svn" />
+	  		</fileset>
+	  	</copy>
+	
+		<echo message="成功所有复制项目${src.dir}下面的所需资源文件到${classes.dir}..." />
+		<echo message="项目ahpips成功编译..." />
+    </target>
+
+    <target name="package" depends="compile">
+  		<war destfile="${war.dir}/${war.name}">
+		  	<fileset dir="${webroot.dir}"/>
+		</war>
+		<echo message="项目ahpips打包成${war.name}成功完成..." />
+  	</target>
+
+  	<target name="deploy" depends="package">
+    	<echo message="开始部署项目归档文件${war.name}到服务器${server}..." />
+		<ftp server="${server}" userid="${ftp.username}" password="${ftp.password}" remotedir="." binary="true">
+		  	<fileset file="${war.dir}/${war.name}" />
+		</ftp>
+  		<echo message="项目ahpips成功部署..." />
+  	</target>  
+	
+	<target name="svn" depends="checkout, compile">
+		<echo message="从SVN上检出代码并编译..." />
+	</target>
+
+  	<target name="all" depends="deploy">
+  		<echo message="项目ahpips的全部编译任务都成功完成..." />
+  	</target>
+
+	<target name="startup">  
+		<exec dir="${tomcat.home}" executable="cmd.exe" >      
+			<arg line="/c ${tomcat.home}/bin/startup.bat" />   
+			<arg line="/c exit" />   
+		</exec>   
+	</target>
+</project>

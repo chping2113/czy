@@ -1,0 +1,126 @@
+@charset "utf-8";
+/* CSS Document */
+
+body,*{ margin:0px; padding:0px;}
+body{ font:Arial, Helvetica, sans-serif;
+      font-size:12px;
+	  
+}
+table{ border-collapse:collapse; border-spacing:0; background:#f8f7f7; } 
+img{ border:0px;}
+
+.content_dj{ margin:0 auto; padding:0px;
+		  width:606px;
+		  border:1px solid #ff5001;
+		  padding:40px;
+		  background:#fcefba;
+}
+.content_topbg,.content_bbg{ background: url(../images/xytopbg.jpg) no-repeat;
+                width:613px;
+				height:22px;
+				clear:both;
+}
+
+
+
+
+.main_text_dj{ background: url(../imgage/xymbg.jpg) repeat-y; width:613px; text-align:center; padding:20px 0px;}
+.title_dj1{ width:525px; border-bottom:4px solid #ff9b1b;
+		   font-weight:bold;
+		   text-align:center;
+           font-size:28px;
+		   margin:0px auto;
+		   margin-bottom:30px;
+		   padding:20px 0px 20px 0px;
+
+}
+.dengji_p01,.dengji_p02{width:500px; margin:0px auto;
+
+}
+
+.dengji_p01_table,.dengji_p02_table{ width:100%; text-align:center; font-size:16px;
+                                      background:#fff;
+}
+.dengji_p03_table{ width:80%; text-align:left; font-size:16px;
+                                      background:#fff;
+}
+.dengji_p01_table th,.dengji_p02_table th{ height:32px;
+                      text-align:left;
+}
+.dengji_p01_table td{ text-align:left;}
+.dengji_p02_table tr td{ border-bottom:1px solid #ccc; text-align:left;}
+.dengji_a{ text-align:center; font-size:50px;
+           margin:100px;
+}
+.right_p{ text-align:left;
+          font-size:13px;
+		  font-weight:bold;
+		  text-decoration:underline;
+		  margin:40px 30px;
+		  float:right;
+		  line-height:180%;
+}
+.left_p{ clear:both; text-align:left; text-indent:30px; font-weight:bold; text-decoration:underline;
+}
+.center_p{ clear:both; text-align:center; text-indent:30px; font-weight:bold; text-decoration:underline;
+}
+.border_bottom{ border-bottom:1px solid #999999;
+				font-weight:normal;
+				padding:0px 80px 0px 10px;
+}
+
+ /*dang an*/
+.main_text_da{ background: url(../images/xymbg.jpg) repeat-y;
+            width:533px;
+			padding:50px 40px;
+			text-align:center;}
+.title01{ text-align:center;
+           font-size:30px;
+		   padding:10px;
+}
+.shengpi_list01,.shengpi_list,.dangan_list01{width:100%;  border:1px  solid #efe6d7; text-align:center; font-family:Arial, Helvetica, sans-serif; }
+.shengpi_list th,.dangan_list01 th{ text-align:right; padding-right:5px; height:34px;font-weight:normal; border-bottom:1px dotted #efe6d7; }
+.shengpi_list td,.dangan_list01 td{ text-align:left; padding-left:5px; height:34px; border-bottom:1px dotted #efe6d7;text-indent:2px;  }
+.shengpi_list01 tr td,.shengpi_list01 tr th{ border-right:1px  solid #efe6d7;}
+
+
+.shengpi_list01 tr th{ text-align:right; padding-right:5px; height:24px;font-weight:normal; border-bottom:1px dotted #efe6d7;}
+.shengpi_list01 td{ text-align:left; padding-left:5px; height:24px; border-bottom:1px dotted #efe6d7; }
+.shengpi_list tr td,.shengpi_list tr th{ border-right:1px  solid #efe6d7;}
+.dangan_list01 th{ text-indent:2px; 
+                 text-align:center;
+				 border-right:1px  solid #efe6d7; 
+				 height:24px; 
+				 background:#faddb0; 
+}
+.dangan_list01 td{ text-indent:2px; 
+                 text-align:left;
+				 border-right:1px  solid #efe6d7;}
+
+
+
+.title_h401{ height:26px; 
+           margin-top:5px; 
+		   font-size:12px;
+           background: #f3eee1;
+		   border:1px  solid #CCCCCC;
+		   border-bottom:none;
+		   font-weight:bold;
+		   line-height:26px;
+		   text-indent:10px;
+		   text-align:left;
+}
+
+.dangan_list01 td{ height:24px;}
+
+.title_h5{ font-size:12px; height:16px;
+           background:#f2ebd1;
+ }
+
+
+
+
+
+
+
+
